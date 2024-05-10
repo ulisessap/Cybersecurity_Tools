@@ -1,0 +1,26 @@
+#crear subred
+sudo docker network create --subnet=172.20.12.0/24 red-ofensiva
+
+#Construir imagenes a partir de Dockerfile
+sudo docker build -t m1 .
+
+#Construir contenedores a partir de imagenes
+sudo docker run --net red-consenso --ip 172.20.12.6 -p 2222:22 -d eseeseache tail -f /dev/null
+
+#Listar contedores
+sudo docker ps
+
+#Interactuar contenedores
+sudo docker exec -it <nombre del contenedor> sh
+
+#detener contenedores
+sudo docker stop <nombre de contenedor>
+
+#borrar contenedores
+sudo docker rm <nombre de contenedor>
+
+#borrar todos los contenedores
+sudo docker container prune
+
+#borrar todo
+sudo docker system prune
